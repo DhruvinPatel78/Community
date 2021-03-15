@@ -7,13 +7,15 @@ interface IButton {
   onPress: () => void;
   label: string;
   variant: 'contain' | 'outline';
+  disabled?: boolean;
 }
 
-const Button = ({onPress, label, variant}: IButton) => {
+const Button = ({onPress, label, variant, disabled = false}: IButton) => {
   const customContainerStyle = {
     ...Style.container,
     backgroundColor:
       variant === 'contain' ? color.grayColorDark : color.whiteColor,
+    borderWidth: variant === 'contain' ? 0 : 2,
   };
 
   const customTextStyle = {
@@ -22,7 +24,13 @@ const Button = ({onPress, label, variant}: IButton) => {
   };
 
   return (
-    <TouchableOpacity style={customContainerStyle} onPress={onPress}>
+    <TouchableOpacity
+      style={[
+        {...customContainerStyle},
+        // {backgroundColor: disabled ? color.grayColor : color.grayColorDark},
+      ]}
+      onPress={onPress}
+      disabled={disabled}>
       <Text style={customTextStyle}>{label}</Text>
     </TouchableOpacity>
   );

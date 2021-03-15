@@ -7,7 +7,7 @@ type ITextInput = {
   value: string;
   onChange: (value: string) => void;
   children?: any;
-  error: string;
+  error?: string;
   keyboardType?:
     | 'default'
     | 'number-pad'

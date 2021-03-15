@@ -20,10 +20,6 @@ const Style = StyleSheet.create({
   headingContainer: {
     alignItems: 'center',
   },
-  heading: {
-    fontSize: constant.fontSizeLarge,
-    fontWeight: 'bold',
-  },
 });
 
 export default Style;
